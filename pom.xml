@@ -10,5 +10,6 @@
 
     <modules>
         <module>book-app</module>
+        <module>rating-app</module>
     </modules>
 </project>
