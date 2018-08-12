@@ -1,0 +1,23 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/geraldoms/config-repository.git
+  security:
+    user:
+      name: configUser
+      password: secret
+      role: SYSTEM
+
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://discUser:secret@localhost:8761/eureka/

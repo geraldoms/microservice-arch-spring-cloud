@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    config:
+      name: rating-app
+      discovery:
+        enabled: true
+        service-id: config-server
+      username: configUser
+      password: secret
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discUser:secret@localhost:8761/eureka
