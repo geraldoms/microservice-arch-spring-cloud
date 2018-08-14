@@ -8,10 +8,6 @@ spring:
       username: configUser
       password: secret
 
-server:
-  servlet:
-    context-path: /rating-app
-
 eureka:
   client:
     service-url:
