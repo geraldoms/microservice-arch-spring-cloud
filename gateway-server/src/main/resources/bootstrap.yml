@@ -1,16 +1,12 @@
 spring:
   cloud:
     config:
-      name: book-app
+      name: gateway-server
       discovery:
         enabled: true
         service-id: config-server
       username: configUser
       password: secret
-
-server:
-  servlet:
-    context-path: /book-app
 
 eureka:
   client:
