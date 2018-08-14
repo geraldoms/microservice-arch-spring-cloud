@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String BASE_URL = "/books";
     private static final String ADMIN_ROLE = "ADMIN";
 
     @Autowired
@@ -26,14 +25,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
             .authorizeRequests()
-                .antMatchers(HttpMethod.GET).permitAll()
-                .antMatchers(HttpMethod.POST, BASE_URL).hasRole(ADMIN_ROLE)
-                .antMatchers(HttpMethod.PUT, BASE_URL + "/*").hasRole(ADMIN_ROLE)
-                .antMatchers(HttpMethod.DELETE, BASE_URL).hasRole(ADMIN_ROLE)
-                .anyRequest().authenticated()
-                .and()
+            .antMatchers(HttpMethod.GET).authenticated()
+            .antMatchers(HttpMethod.POST).hasRole(ADMIN_ROLE)
+            .antMatchers(HttpMethod.PUT).hasRole(ADMIN_ROLE)
+            .antMatchers(HttpMethod.DELETE).hasRole(ADMIN_ROLE)
+            .anyRequest().authenticated()
+            .and()
             .csrf()
-                .disable();
+            .disable();
     }
 
 }
